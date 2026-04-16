@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 215 28% 9%;
+    --card: 217 30% 11%;
+    --card-elevated: 218 28% 14%;
+    --border: 217 25% 18%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+    --muted: 215 20% 45%;
+    --muted-foreground: 215 15% 60%;
+    --text-primary: 210 40% 95%;
+    --text-secondary: 215 20% 65%;
+    --emerald: 160 84% 39%;
+    --amber: 38 92% 50%;
+    --rose: 0 72% 51%;
+    --navy-deep: 222 47% 8%;
+  }
+
+  html {
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--text-primary));
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--card));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted));
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+  .card-base {
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: 12px;
+  }
+  .card-elevated {
+    background-color: hsl(var(--card-elevated));
+    border: 1px solid hsl(var(--border));
+    border-radius: 12px;
+  }
+  .text-primary-color {
+    color: hsl(var(--text-primary));
+  }
+  .text-secondary-color {
+    color: hsl(var(--text-secondary));
+  }
+  .text-emerald {
+    color: hsl(var(--emerald));
+  }
+  .bg-emerald-custom {
+    background-color: hsl(var(--emerald));
+  }
+  .border-custom {
+    border-color: hsl(var(--border));
+  }
+}
+
+@keyframes terminalBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background-color: hsl(var(--emerald));
+  animation: terminalBlink 1s step-end infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.35s ease-out forwards;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--card)) 25%,
+    hsl(var(--card-elevated)) 50%,
+    hsl(var(--card)) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: var(--target-width); }
+}
+.progress-animated {
+  animation: progressFill 0.8s ease-out forwards;
+}
