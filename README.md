@@ -1,6 +1,6 @@
 # SkillMatch AI
 
-An AI-powered volunteer-to-task allocation platform built for NGOs. Upload a volunteer roster and a task database, run the matchmaking engine, and get structured allocations with confidence scores and AI reasoning — all in one dashboard.
+An AI-powered volunteer-to-task allocation platform built for NGOs. Upload a volunteer roster and a task database, run the matchmaking engine, and get structured allocations with confidence scores and AI reasoning — all in one dashboard
 
 ---
 
